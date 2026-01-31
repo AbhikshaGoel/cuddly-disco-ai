@@ -28,4 +28,4 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           # WP Secrets not needed for ingestion, but good practice to keep env clean
         run: |
-          python news_manager.py ingest
+          python manager.py ingest
