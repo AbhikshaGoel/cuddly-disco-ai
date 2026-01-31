@@ -1,19 +1,3 @@
-
-That is excellent! You are absolutely right. If you have access to the Gemini 2.5 Flash Image (Nano Banana) model via AI Studio, we should absolutely use it. It is native, fast, and integrates perfectly with the new SDK.
-Here is the updated, complete solution using the exact Google Docs code you provided, combined with the logic to crop the bottom (to handle any potential visual watermarks/logos) and upload to WordPress.
-1. requirements.txt
-Ensure you have the latest Google GenAI SDK.
-code
-Text
-google-genai
-feedparser
-supabase
-requests
-Pillow
-2. The Python Code (news_manager.py)
-I have updated the generate_image function to use your Nano Banana code snippet.
-code
-Python
 import os
 import sys
 import json
@@ -52,12 +36,14 @@ def generate_article_text(title):
     prompt = f"""
     You are a Hindi News Editor.
     Task: Write a viral news article in Hindi about: "{title}".
+    Summary: Give a short summary appropriate for fb post, mentioning post important details in short"
     
     Output JSON ONLY:
     {{
       "headline_hindi": "Catchy Hindi Headline",
       "body_html": "<p>HTML body content in Hindi...</p>",
-      "image_prompt": "A cinematic, photorealistic photo of {title}, Indian context, 4k"
+      "summary_for_fb": "Data of detail blog post that is important",
+      "image_prompt": "A catchy cinematic, photorealistic photo of {title} and summary of blog post as a thumbnail for youtube very less text in image, Indian context, 4k"
     }}
     """
     
