@@ -2,7 +2,7 @@ name: News Publisher
 
 on:
   schedule:
-    # GitHub Cron uses UTC
+    # Runs at specific IST times (converted to UTC)
     - cron: '30 4 * * *'  # 10:00 AM IST
     - cron: '30 7 * * *'  # 01:00 PM IST
     - cron: '30 10 * * *' # 04:00 PM IST
@@ -26,14 +26,12 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Run Publish Script
+      - name: Run Manager Script
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           WP_URL: ${{ secrets.WP_URL }}
           WP_TOKEN: ${{ secrets.WP_TOKEN }}
+          WP_USER: ${{ secrets.WP_USER }}
+          RSS_URL: ${{ secrets.RSS_URL }}
         run: |
-          # The script logic inside publish_batch needs to default to limit=5
           python manager.py publish
-          
