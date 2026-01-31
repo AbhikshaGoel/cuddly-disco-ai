@@ -1,5 +1,7 @@
 feedparser
+google-genai
 openai
 supabase
 requests
+Pillow
 pytz

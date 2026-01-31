@@ -35,4 +35,5 @@ jobs:
           WP_TOKEN: ${{ secrets.WP_TOKEN }}
         run: |
           # The script logic inside publish_batch needs to default to limit=5
-          python news_manager.py publish
+          python manager.py publish
+          
