@@ -1,0 +1,38 @@
+name: News Publisher
+
+on:
+  schedule:
+    # GitHub Cron uses UTC
+    - cron: '30 4 * * *'  # 10:00 AM IST
+    - cron: '30 7 * * *'  # 01:00 PM IST
+    - cron: '30 10 * * *' # 04:00 PM IST
+    - cron: '30 12 * * *' # 06:00 PM IST
+    - cron: '30 14 * * *' # 08:00 PM IST
+  workflow_dispatch:
+
+jobs:
+  run-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Publish Script
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_TOKEN: ${{ secrets.WP_TOKEN }}
+        run: |
+          # The script logic inside publish_batch needs to default to limit=5
+          python news_manager.py publish
