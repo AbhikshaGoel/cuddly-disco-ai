@@ -9,3 +9,51 @@ python-dotenv
 groq
 tabulate
 colorama
+
+# =====================================================================
+# News AI System - Python Dependencies
+# =====================================================================
+
+# Core dependencies
+requests>=2.31.0
+numpy>=1.24.0
+
+# RSS Parsing
+feedparser>=6.0.10
+
+# Database (Supabase)
+supabase>=2.0.0
+postgrest>=0.10.8
+
+# AI/ML (Local fallback)
+sentence-transformers>=2.2.0
+torch>=2.0.0
+
+# CLI Enhancement (optional)
+colorama>=0.4.6
+
+# Utilities
+python-dotenv>=1.0.0
+
+# =====================================================================
+# Installation Instructions:
+# =====================================================================
+# 
+# Option 1: Install all dependencies
+#   pip install -r requirements.txt
+#
+# Option 2: Minimal install (Cloudflare + DB only)
+#   pip install requests numpy feedparser supabase
+#
+# Option 3: With local AI fallback
+#   pip install requests numpy feedparser supabase sentence-transformers
+#
+# Option 4: Full install with CLI colors
+#   pip install -r requirements.txt
+#
+# =====================================================================
+
+# Optional: Development dependencies
+# pytest>=7.4.0
+# black>=23.0.0
+# flake8>=6.0.0
