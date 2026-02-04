@@ -5,3 +5,7 @@ supabase
 requests
 Pillow
 pytz
+python-dotenv
+groq
+tabulate
+colorama
