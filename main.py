@@ -203,7 +203,7 @@ class NewsPipeline:
         for i, art in enumerate(sorted_articles[:top_n], 1):
             category = art.get("category", "UNKNOWN")
             score = art.get("score", 0)
-            title = art.get("title", "No Title")[:60]
+            title = art.get("title", "No Title")[:110]
             method = art.get("classification_method", "?")
             
             print(f"{i:2d}. [{category:10s}] {score:6.2f} ({method:8s}) {title}")
@@ -227,7 +227,7 @@ class NewsPipeline:
             print(f"\n{i}. [{category}] Score: {score:.2f}")
             print(f"   {title}")
             if art.get("link"):
-                print(f"   🔗 {art['link'][:70]}")
+                print(f"   🔗 {art['link']}")
         
         print("=" * 80 + "\n")
     

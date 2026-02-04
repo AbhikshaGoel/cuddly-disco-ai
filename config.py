@@ -99,6 +99,8 @@ Global Configuration: Feeds, Keywords, and Scoring Rules
 Enhanced with better batch processing support
 """
 import os
+from dotenv import load_dotenv  # <--- ADD THIS
+load_dotenv()
 
 # ---------------------------------------------------------
 # 1. DIVERSE DATA SOURCES (RSS)
@@ -142,7 +144,7 @@ CLOUDFLARE_CONFIG = {
     "pooling": "cls",
     
     # Retry configuration
-    "max_retries": 3,
+    "max_retries": 1,
     "retry_delay": 1.0,  # seconds
     "timeout": 30,  # seconds
 }
@@ -173,7 +175,7 @@ SUPABASE_CONFIG = {
     "key": os.environ.get("SUPABASE_KEY"),
     
     # Batch insert settings
-    "max_insert_batch": 100,
+    "max_insert_batch": 50,
     
     # Query settings
     "default_limit": 40,
