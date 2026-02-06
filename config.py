@@ -178,7 +178,7 @@ SUPABASE_CONFIG = {
     "max_insert_batch": 50,
     
     # Query settings
-    "default_limit": 40,
+    "default_limit": 100,
     "similarity_threshold": 0.7,
 }
 
